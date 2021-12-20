@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<title>En kundvagn (VG)</title>
+		<meta content="initial-scale=1, width=device-width" name="viewport" />
+	</head>
+	<body>
+		<div id="app">
+			<table>
+				<thead>
+					<tr>
+						<th>Produkt</th>
+						<th>Antal</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(info, id) in products" :key="id">
+						<td>{{ info.name }}</td>
+						<td>{{ info.price }}</td>
+						<td><input type="button" value="+" @click="addToCart(id)" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Totalsumma: {{ total }}</p>
+		</div>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
