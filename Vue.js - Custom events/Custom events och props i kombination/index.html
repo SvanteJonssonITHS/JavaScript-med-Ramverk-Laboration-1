@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<title>Custom events och props i kombination (VG)</title>
+		<meta content="initial-scale=1, width=device-width" name="viewport" />
+	</head>
+	<body>
+		<div id="app">
+			<controls @start-game="onStartGame"></controls>
+			<game :credits="credits" :user-name="userName"></game>
+		</div>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script>
+			const app = Vue.createApp({
+				data() {
+					return {
+						credits: null,
+						userName: null
+					};
+				},
+				methods: {
+					onStartGame(o) {
+						this.credits = o.credits;
+						this.userName = o.userName;
+					}
+				}
+			});
+		</script>
+		<script src="index.js"></script>
+		<script>
+			app.mount('#app');
+		</script>
+	</body>
+</html>
